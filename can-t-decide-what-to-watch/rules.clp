@@ -5,6 +5,51 @@
         (retract ?k)
 )
 
+(defrule movie-television
+?k <-   (Movie a Television)
+        (not (exists (Movie a Television used)))
+?q <-   (question $?a)
+=>
+        (retract ?q)
+        (assert (question "What do you prefer?" "Movie" "Television"))
+        (retract ?k)
+        (assert (Movie a Television used))
+)
+
+(defrule comedy-action-drama
+?k <-   (Comedy a Action a Drama)
+        (not (exists (Komedia a Akcja a Dramat used)))
+?q <-   (question $?a)
+=>
+        (retract ?q)
+        (assert (question "What do you prefer?" "Comedy" "Action" "Drama"))
+        (retract ?k)
+        (assert (Komedia a Akcja a Dramat used))
+)
+
+(defrule none-mindfuckery-crime
+?k <-   (None a Mindfuckery a Crime)
+        (not (exists (Komedia a Akcja a Dramat used)))
+?q <-   (question $?a)
+=>
+        (retract ?q)
+        (assert (question "What do you prefer?" "Comedy" "Action" "Drama"))
+        (retract ?k)
+        (assert (Komedia a Akcja a Dramat used))
+)
+
+(defrule mindfuckery-types
+?k <-   (mindfuckery-types)
+        (not (exists (mindfuckery-types)))
+?q <-   (question $?a)
+=>
+        (retract ?q)
+        (assert (question "What do you prefer?" "Backstabbing senator claws his way through politics" "Kids lose their friend to an unearthly creature and track him down"))
+        (retract ?k)
+        (assert (mindfuckery-types used))
+)
+
+
 (defrule like-comics
 ?k <-   (yes)
 ?q <-   (question $?a)
