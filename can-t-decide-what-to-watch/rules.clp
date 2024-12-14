@@ -1,3 +1,9 @@
+(defrule init-system
+?k <-   (start)
+=>
+        (assert (question "Do you want to start?" "yes"))
+        (retract ?k)
+)
 
 (defrule like-comics
 ?k <-   (yes)
@@ -30,12 +36,4 @@
         (assert (question "What sounds the most interesting to you?" "Two brothers hunt monsters and demons" "A retelling of Arthurian legend" "Musical fairy tale satire"))
         (retract ?k)
         (assert (Fantasy used))
-)
-
-    
-(defrule init-system
-?k <-   (start)
-=>
-        (assert (question "Do you want to start?" "yes"))
-        (retract ?k)
 )
