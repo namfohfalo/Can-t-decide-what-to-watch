@@ -170,7 +170,7 @@
     (assert (result "Phineas and Ferb"))
 )
 
-(defule pokemon
+(defrule pokemon
     (Chaotic toons do shenanigans)
 =>
     (assert (result "Pokemon"))
@@ -368,8 +368,8 @@
     (assert (result "The Big Lebowski"))
 )
 
-(defrule oh-brother,-where art-thou
-    (The Odyssey set in the depression era south)
+(defrule oh-brother-where-art-thou
+    (The Odyssey set in the depression era southm)
 =>
     (assert (result "Oh Brother, Where Art Thou"))
 )
@@ -550,7 +550,7 @@
 )
 
 (defrule the-butler
-    (Cecil Gaines (fictionalised version of Eugene Allen) is a White House butler for 8 presidents)
+    (Cecil Gaines fictionalised version of Eugene Allen is a White House butler for 8 presidents)
 =>
     (assert (result "The Butler"))
 )

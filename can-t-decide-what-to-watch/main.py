@@ -1,62 +1,83 @@
 import clips
 import tkinter as tk
 
-env = clips.Environment()
-agenda = clips.agenda.Agenda(env)
-env.load("movies.clp")
-env.load("rules.clp")
+
+class MovieSuggesterApp:
+    def __init__(self, env):
+        self.env = env
+        self.root = tk.Tk()
+        self.root.title("Movie Suggester App")
+        self.root.geometry("400x300")
+
+        self.question_label = tk.Label(
+            self.root, text="", font=("Arial", 14), wraplength=380)
+        self.question_label.pack(pady=20)
+
+        self.button_frame = tk.Frame(self.root)
+        self.button_frame.pack()
+
+        self.result_label = tk.Label(self.root, text="", font=(
+            "Arial", 16), fg="blue", wraplength=380)
+        self.result_label.pack(pady=20)
+
+        self.load_data()
+        self.update_ui()
+
+    def print_facts(self):
+        print("facts")
+        for f in self.env.facts():
+            print(str(f))
+        print("agenda")
+        for b in self.env._agenda.activations():
+            print(str(b))
+
+    def load_data(self):
+        self.env.load("movies.clp")
+        self.env.load("rules.clp")
+        self.env.reset()
+        self.env.run()
+        self.print_facts()
+
+    def assert_fact(self, fact):
+        self.env.assert_string(f'({str(fact)})')
+        self.print_facts()
+        for i in self.env._agenda.activations():
+            self.env.run()
+        self.update_ui()
+
+    def update_ui(self):
+        self.clear_ui()
+
+        # Check for "result" facts
+        for fact in self.env.facts():
+            if "result" in str(fact):
+                self.result_label.config(text=f"You should watch {str(fact[0])}")
+                return
+
+        # Check for "question" facts
+        for fact in self.env.facts():
+            if "question" in str(fact):
+                self.question_label.config(text=str(fact[0]))
+
+                for i in range(1, len(fact)):
+                    button = tk.Button(self.button_frame, text=str(fact[i]), font=("Arial", 12),
+                                       command=lambda x=fact[i]: self.assert_fact(x))
+                    button.pack(pady=5)
+                return
+
+        self.question_label.config(text="No more questions.")
+
+    def clear_ui(self):
+        self.question_label.config(text="")
+        self.result_label.config(text="")
+        for widget in self.button_frame.winfo_children():
+            widget.destroy()
+
+    def run(self):
+        self.root.mainloop()
 
 
-def assert_fact(fact):
-    env.assert_string(f'({str(fact)})')
-    env.run()
-    print_facts()
-    new_tk()
-
-
-def print_facts():
-    for f in env.facts():
-        print(str(f))
-    print("--")
-    for b in env._agenda.activations():
-        print(str(b))
-    print("--++--")
-
-
-
-def new_tk():
-    root = tk.Tk()
-    
-
-
-    root.title("App")
-
-    root.geometry("200x200")
-
-    for f in env.facts():
-        if "result" in str(f):
-            result_label = tk.Label(root, text=f"You should watch {str(f[0])}", font=40)
-            result_label.pack()
-            root.mainloop()
-
-    for f in env.facts():
-
-        if "question" in str(f):
-            question_label = tk.Label(root, text=str(f[0]), font=30)
-            question_label.pack()
-
-            for i in range(1, len(f)):
-                ans_button = tk.Button(root, text=str(
-                    f[i]), font=20, command= lambda x=f[i]: assert_fact(x))
-                ans_button.pack()
-
-    root.mainloop()
-
-
-env.reset()
-
-for f in env.facts():
-    print(str(f))
-print("--st--")
-env.run()
-new_tk()
+if __name__ == "__main__":
+    env = clips.Environment()
+    app = MovieSuggesterApp(env)
+    app.run()
