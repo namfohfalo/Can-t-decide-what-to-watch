@@ -7,7 +7,11 @@ class MovieSuggesterApp:
         self.env = env
         self.root = tk.Tk()
         self.root.title("Movie Suggester App")
-        self.root.geometry("400x300")
+        self.root.geometry("800x600")
+
+        self.result_label = tk.Label(self.root, text="", font=(
+            "Arial", 16), fg="blue", wraplength=380)
+        self.result_label.pack(pady=20)
 
         self.question_label = tk.Label(
             self.root, text="", font=("Arial", 14), wraplength=380)
@@ -16,9 +20,6 @@ class MovieSuggesterApp:
         self.button_frame = tk.Frame(self.root)
         self.button_frame.pack()
 
-        self.result_label = tk.Label(self.root, text="", font=(
-            "Arial", 16), fg="blue", wraplength=380)
-        self.result_label.pack(pady=20)
 
         self.load_data()
         self.update_ui()
@@ -36,7 +37,6 @@ class MovieSuggesterApp:
         self.env.load("rules.clp")
         self.env.reset()
         self.env.run()
-        self.print_facts()
 
     def assert_fact(self, fact):
         self.env.assert_string(f'({str(fact)})')
