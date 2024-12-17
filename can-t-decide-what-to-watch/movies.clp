@@ -537,7 +537,7 @@
 )
 
 (defrule patton
-    (WW2 General Patton. "Rommel, you magnificent bastard! I read your book!")
+    (WW2 General Patton. 'Rommel, you magnificent bastard! I read your book!')
 =>
     (assert (result "Patton"))
 )
@@ -549,7 +549,7 @@
 )
 
 (defrule the-butler
-    (Cecil Gaines fictionalised version of Eugene Allen is a White House butler for 8 presidents)
+    (Cecil Gaines - fictionalised version of Eugene Allen - is a White House butler for 8 presidents)
 =>
     (assert (result "The Butler"))
 )
