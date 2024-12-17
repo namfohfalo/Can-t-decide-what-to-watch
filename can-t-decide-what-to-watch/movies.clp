@@ -300,14 +300,8 @@
     (assert (result "Kill Bill Vol.1"))
 )
 
-(defrule kill-bill-vol.2
-    (Tarantino directed revenge movie)
-=>
-    (assert (result "Kill Bill Vol.2"))
-)
-
 (defrule the-five-venoms
-    (Special effects out te wazoo)
+    (Special effects out the wazoo)
 =>
     (assert (result "The Five Venoms"))
 )
@@ -338,7 +332,7 @@
 
 (defrule hot-fuzz
     (British)
-    (Goofy)
+    (Goofy used)
 =>
     (assert (result "Hot Fuzz"))
 )
@@ -368,7 +362,7 @@
 )
 
 (defrule oh-brother-where-art-thou
-    (The Odyssey set in the depression era southm)
+    (The Odyssey set in the depression era south)
 =>
     (assert (result "Oh Brother, Where Art Thou"))
 )
@@ -466,7 +460,7 @@
 (defrule ferris-bueller's-day-off
     (Teenager playing hooky in downtown Chicago)
 =>
-    (assert (result "Ferris Bueller's day off"))
+    (assert (result "Ferris Bueller's Day Off"))
 )
 
 (defrule heathers
@@ -483,7 +477,7 @@
 
 (defrule dazed-and-confused
     (70's stoners)
-    (Cult classics)
+    (Cult classics used)
 =>
     (assert (result "Dazed and confused"))
 )
@@ -507,7 +501,7 @@
 )
 
 (defrule a-girl-walks-home-alone-at-night
-    (Iran's first vapire/gangster/western/horror movie)
+    (Iran's first vampire/gangster/western/horror movie)
 =>
     (assert (result "A Girl Walks Home Alone at Night"))
 )

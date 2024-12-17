@@ -702,7 +702,7 @@
 ?q <- (question $?a)
 =>
 	(retract ?q)
-	(assert (question "Whose biopic?" "WW2 General Patton. 'Rommel, you magnificent bastard! I read your book!'" "Jimmy Hoffa, union leader and mob boss who died under mysterious circumstances" "Cecil Gaines - fictionalised version of Eugene Allen - is a White House butler for 8 presidents"))
+	(assert (question "Whose biopic?" "WW2 General Patton. 'Rommel, you magnificent bastard! I read your book!'" "Jimmy Hoffa, union leader and mob boss who died under mysterious circumstances" "Cecil Gaines - fictionalised version of Eugene Allen -iran is a White House butler for 8 presidents"))
 	(retract ?k)
 	(assert (Political biopic used))
 )
