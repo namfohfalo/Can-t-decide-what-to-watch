@@ -1,9 +1,11 @@
 # Can-t-decide-what-to-watch
 Regułowy system ekspercki do podejmowania decyzji na temat tego, co użytkownik powinien obejrzeć.
 
-Używany język: Python + CLIPS
+Autorzy: Dominik Fajfer 155899, Olaf Hofman 155974
 
+Używany język: Python 3.11 + CLIPS
 
+Biblioteki Tkinter 5.2.2, Clipspy 1.0.4
 
 ## Project setup
 ### Powershell / Windows
