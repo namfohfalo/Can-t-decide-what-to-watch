@@ -365,7 +365,7 @@
 
 ;;; Mindfuckery
 (defrule mindfuckery
-		(Crime used)
+		(Drama used)
 		(Television used)
 ?k <-   (Mindfuckery)
         (not (exists (Mindfuckery used)))
@@ -379,7 +379,7 @@
 
 ;;; None of the above
 (defrule none-of-the-above
-		(Crime used)
+		(Drama used)
 		(Television used)
 ?k <-   (None of the above)
         (not (exists (None of the above used)))
