@@ -27,7 +27,7 @@
 )
 
 (defrule the-twilight-zone
-    (Classic sci-fi serial featuring short, poderous stories)
+    (Classic sci-fi serial featuring short, ponderous stories)
 =>
     (assert (result "The Twilight Zone"))
 )
@@ -111,7 +111,7 @@
 )
 
 (defrule person-of-interest
-    (People fight crime with help of persasive surveillance)
+    (People fight crime with help of pervasive surveillance)
 =>
     (assert (result "Person of Interest"))
 )
@@ -147,7 +147,7 @@
 )
 
 (defrule jessica-jones
-    (Super string detective with traumatic past)
+    (Super strong detective with traumatic past)
 =>
     (assert (result "Jessica Jones"))
 )
@@ -207,7 +207,7 @@
 )
 
 (defrule that-70's-show
-    (Friends hanging out)
+    (Friends hanging out used)
     (70's stoners)
 =>
     (assert (result "That 70's show"))
@@ -231,15 +231,14 @@
     (assert (result "The IT Crowd"))
 )
 
-(defrule the-office-(uk)
-    (British)
+(defrule the-office-uk
+    (British used)
     (Relatable story of dysfunctional workplaces)
 =>
     (assert (result "The Office (UK)"))
 )
-
-(defrule the-office-(us)
-    (American)
+(defrule the-office-us
+    (American used)
     (Relatable story of dysfunctional workplaces)
 =>
     (assert (result "The Office (US)"))
